@@ -1,1 +1,1 @@
-# hautakchurch-wordpress-theme
+# Hautakchurch Wordpress Theme
