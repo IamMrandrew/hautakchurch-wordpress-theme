@@ -28,6 +28,7 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'hautakchurch' ), 'hautakchurch', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
+			<h1 class="footerTester">PLEASE WORKRKRK</h1>
 		</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
