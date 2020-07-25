@@ -183,9 +183,11 @@
 </nav>
 </div>
 
-<!-- <header id="masthead" class="site-header"> -->
-		<div class="site-branding">
-			<?php
+
+<!-- 
+<header id="masthead" class="site-header">
+		<div class="site-branding"> -->
+			<?php  /*
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
@@ -214,4 +216,7 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+    </header><!-- #masthead -->
+    
+    */
+    
