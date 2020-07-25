@@ -532,7 +532,7 @@ table {
 
 /* Links
 --------------------------------------------- */
-a {
+/* a {
 	color: #4169e1;
 }
 
@@ -548,7 +548,7 @@ a:active {
 
 a:focus {
 	outline: thin dotted;
-}
+} */
 
 a:hover,
 a:active {
@@ -990,6 +990,7 @@ body { font-family: 'Noto Sans TC'!important;}
 *{
   font-family: "PingFang HK", "Noto Sans TC", "Helvetica", "Lucida Grande", "Microsoft JhengHei", "Arial", sans-serif;
   font-weight: 300;
+  text-decoration: none;
 }
 
 body{

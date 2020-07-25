@@ -11,7 +11,22 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer bg-dark border-top" style="height: 50px">
+	<footer class="bg-dark border-top" style="height : 50px">
+    <div class="container header-container" style="padding-top : 12px; max-width : 1200px;">
+        <p class="text-left" style="font-size : 14px; color : #CBCBCB">©2020 Hau Tak Church 保留一切權利</p>
+    </div>
+	</footer>
+
+</div><!-- #page -->
+
+
+
+<?php wp_footer(); ?>
+
+</body>
+</html>
+
+<footer id="colophon" class="site-footer bg-dark border-top" style="height: 50px">
 		<div class="site-info">
 		<div class="container header-container" style="padding-top: 12px; max-width: 1200px">
 			<div class="text-left" style="font-size: 14px; color: #CBCBCB">
@@ -31,9 +46,3 @@
 		</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
-
-<?php wp_footer(); ?>
-
-</body>
-</html>

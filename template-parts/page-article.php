@@ -18,7 +18,6 @@ get_header();
 ?>
 
 
-
 <!-- <h2 class="my-4"></h2>         -->
 
 <!--<img class="my-2" src="#" width="100%">
