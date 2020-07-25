@@ -1024,3 +1024,13 @@ body{
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/* Custom CSS */
+
+.custom-logo-link img {
+	height: 75px;
+
+	@media screen and (max-width: 768px) {
+		height: 40px;
+	}
+}
