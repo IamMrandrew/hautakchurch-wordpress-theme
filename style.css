@@ -741,6 +741,10 @@ textarea {
 	flex: 1 0 50%;
 }
 
+nav {
+	background-color : #202020;
+}
+
 /* index.php  */
 @import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
 body { font-family: 'Noto Sans TC'!important;}
