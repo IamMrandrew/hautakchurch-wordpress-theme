@@ -32,8 +32,11 @@
     <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light border-bottom py-1" style="background-color : #FFFFFF; padding : 10px">
         <div class="container header-container" id="container">
-        <a href="index.php"><img class="navbar-brand d-lg-none" src="img/moNavNEW2.png" style="height : 40px; margin : 4px; padding : 0px"></a>
-        <a href="index.php"><img class="navbar-brand d-none d-lg-block" src="img/superLongNav.png" style="height : 75px; margin-top : 3px; margin :0px "></a>
+        <!-- <a href="index.php"><img class="navbar-brand d-lg-none" src="img/moNavNEW2.png" style="height : 40px; margin : 4px; padding : 0px"></a> -->
+        <!-- <a href="index.php"><img class="navbar-brand d-none d-lg-block" src="img/superLongNav.png" style="height : 75px; margin-top : 3px; margin :0px "></a> -->
+        <?php  
+		    the_custom_logo();
+		?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" ="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border : none">
             <span class="navbar-toggler-icon">
 
@@ -52,7 +55,7 @@
             'walker'          => new WP_Bootstrap_Navwalker(),
         ) ); 
         ?>
-        
+
         </div>
     </nav>
     </header>
