@@ -741,63 +741,6 @@ textarea {
 	flex: 1 0 50%;
 }
 
-/* index.php  */
-@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
-body { font-family: 'Noto Sans TC'!important;}
-
-*{
-  font-family: "PingFang HK", "Noto Sans TC", "Helvetica", "Lucida Grande", "Microsoft JhengHei", "Arial", sans-serif;
-  font-weight: 300;
-}
-
-body{
- /* background : #F7F7F7;*/
- background : #ffffff;
-  background-size : cover;
-}
-
-.noti-nav{
-  width: 100%;
-  /* background-color: #ffffff; */
-  margin-top: 3px;
-}
-
-.noti-nav div{
-  color: #494949;
-}
-
-.noti-nav a{
-  color: #5e5e5e;
-  font-size: 22px;;
-  font-weight: 450;
-}
-
-.card{
-  border: 0;
-}
-.custom-container-width{
-  max-width : 1010px;
-}
-
-.text-container{
-  max-width : 760px;
-}
-
-
-.crop{
-  width : 100%;
-  text-align : center;
-  overflow : hidden;
-}
-
-.crop img{
-  max-width : 1440px;
-  position : relative;
-  left : 100%;
-  margin-left : -200%;
-}
-
-
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -1030,10 +973,68 @@ body{
 .custom-logo-link img {
 	height: 75px !important;
 	width: 396.61px !important;
+	padding: 5px;
 }
 @media screen and (max-width: 768px) {
 	.custom-logo-link img {
 		height: 40px !important;
 		width: 266.02px !important;
+		padding: 0px;
 	}
+}
+
+/* index.php  */
+@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+body { font-family: 'Noto Sans TC'!important;}
+
+*{
+  font-family: "PingFang HK", "Noto Sans TC", "Helvetica", "Lucida Grande", "Microsoft JhengHei", "Arial", sans-serif;
+  font-weight: 300;
+}
+
+body{
+ /* background : #F7F7F7;*/
+ background : #ffffff;
+  background-size : cover;
+}
+
+.noti-nav{
+  width: 100%;
+  /* background-color: #ffffff; */
+  margin-top: 3px;
+}
+
+.noti-nav div{
+  color: #494949;
+}
+
+.noti-nav a{
+  color: #5e5e5e;
+  font-size: 22px;;
+  font-weight: 450;
+}
+
+.card{
+  border: 0;
+}
+.custom-container-width{
+  max-width : 1010px;
+}
+
+.text-container{
+  max-width : 760px;
+}
+
+
+.crop{
+  width : 100%;
+  text-align : center;
+  overflow : hidden;
+}
+
+.crop img{
+  max-width : 1440px;
+  position : relative;
+  left : 100%;
+  margin-left : -200%;
 }

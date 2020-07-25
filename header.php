@@ -36,7 +36,10 @@
         <!-- <a href="index.php"><img class="navbar-brand d-none d-lg-block" src="img/superLongNav.png" style="height : 75px; margin-top : 3px; margin :0px "></a> -->
         <?php  
 		    the_custom_logo();
-		?>
+        ?>
+        
+        <!-- Maybe not customizable here -->
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" ="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border : none">
             <span class="navbar-toggler-icon">
 
