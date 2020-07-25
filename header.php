@@ -40,11 +40,10 @@
             </span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
         <?php 
         wp_nav_menu( array(
             'theme_location'  => 'menu-1',
-            'depth'           => 3, // 1 = no dropdowns, 2 = with dropdowns.
+            'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
             'container'       => 'div',
             'container_class' => 'collapse navbar-collapse',
             'container_id'    => 'navbarNav',
@@ -53,7 +52,7 @@
             'walker'          => new WP_Bootstrap_Navwalker(),
         ) ); 
         ?>
-        </div>
+        
         </div>
     </nav>
     </header>
