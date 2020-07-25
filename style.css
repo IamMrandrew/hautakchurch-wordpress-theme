@@ -1029,8 +1029,11 @@ body{
 
 .custom-logo-link img {
 	height: 75px !important;
-
-	@media screen and (max-width: 768px) {
+	width: 396.61px !important;
+}
+@media screen and (max-width: 768px) {
+	.custom-logo-link img {
 		height: 40px !important;
+		width: 266.02px !important;
 	}
 }
