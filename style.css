@@ -741,10 +741,6 @@ textarea {
 	flex: 1 0 50%;
 }
 
-#navbarNav {
-	background-color: #800080;
-}
-
 /* index.php  */
 @import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
 body { font-family: 'Noto Sans TC'!important;}
@@ -1027,4 +1023,11 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+
+/* footer */
+
+.footerTester {
+	color: #ff59ff;
 }
