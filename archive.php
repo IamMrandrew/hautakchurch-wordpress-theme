@@ -20,11 +20,15 @@ get_header();
 					the_post();
 
 					get_template_part('template-parts/content', 'archive');
-
+				
+			?>
+				<hr>
+			<?php
 				endwhile;
 
 				the_posts_navigation();
 			?>
+
 		</article>
 	</div>
 
