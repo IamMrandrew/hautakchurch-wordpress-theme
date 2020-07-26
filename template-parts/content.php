@@ -23,7 +23,7 @@
 			<div class="entry-meta">
 				<?php
 				hautakchurch_posted_on();
-				hautakchurch_posted_by();
+				// hautakchurch_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

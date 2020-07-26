@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: Home2
+ * Template Name: Front Page
  * 
- * The template for displaying all pages
+ * The template for displaying front page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -19,7 +19,7 @@ get_header();
 
 <div class="noti-nav">
 			<div class="container text-center py-3">
-				<a href="https://youtu.be/d5OA8TTfpIo" >👉🏻 觀看網上崇拜直播 </a>
+				<a href="https://youtu.be/d5OA8TTfpIo" >👉🏻 觀看網上崇拜直播</a>
 			</div>
 		</div>
 
@@ -137,19 +137,22 @@ get_header();
             </div>
             
             <?php
+                    // global $query_string;
+                    query_posts( array(
+                        'category_name'  => '最新消息',
+                        'posts_per_page' => 3
+                    ) );
                 if ( have_posts() ) :
                     while ( have_posts() ) :
                         the_post();
-                        the_content();
-                        echo "hi";
-                        // get_template_part( 'template-parts/content',  );
+                        get_template_part( 'template-parts/content', 'news' );
                     endwhile; // End of the loop.
                 endif;
             ?>
 
             <div class="row">
             <div class="col">
-                <a href="notice.php" style="color : inherit"><p class="text-left">查看更多</p></a>
+                <a href="<?php echo get_category_link( get_cat_ID('最新消息')); ?>" style="color : inherit"><p class="text-left">查看更多</p></a>
             </div>
             </div>
         </div>
@@ -163,24 +166,26 @@ get_header();
 		        <div class="col">
 		            <h3>其他資訊</h3>
 		        </div>
-	        </div>
-	            
-            <?php 
-            $result = mysqli_query($conn,"SELECT * FROM info ORDER BY date DESC");
-            while ($row = mysqli_fetch_array($result))
-            {
-                echo 
-                '<div class="row my-2">
-                <div class="col">';
-                
-                echo '<p style="font-size : 16px">
-                         ・ &nbsp&nbsp <a href="'.$row["file"].'" style="color:inherit;">' .$row["topic"].'</a>
-                     </p>
-                </div>
-                </div>';
-            }
+            </div>
+            
+            <?php
+                    // global $query_string;
+                    query_posts( array(
+                        'category_name'  => '其他資訊',
+                        'posts_per_page' => 5
+                    ) );
+                if ( have_posts() ) :
+                    while ( have_posts() ) :
+                        the_post();
+                        get_template_part( 'template-parts/content', 'news' );
+                    endwhile; // End of the loop.
+                endif;
             ?>
-					
+	        <div class="row">
+            <div class="col">
+                <a href="<?php echo get_category_link( get_cat_ID('其他資訊')); ?>" style="color : inherit"><p class="text-left">查看更多</p></a>
+            </div>
+            </div>
             </div>
         </div>
         </div>

@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<div class="container text-container">
+	<main id="primary" class="site-main">
 
 		<?php
 		while ( have_posts() ) :
@@ -20,8 +20,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( '上一篇:', 'hautakchurch' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( '下一篇:', 'hautakchurch' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'hautakchurch' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'hautakchurch' ) . '</span> <span class="nav-title">%title</span>',
 				)
 			);
 
@@ -33,7 +33,7 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-	</div><!-- #main -->
+	</main><!-- #main -->
 
 <?php
 // get_sidebar();
