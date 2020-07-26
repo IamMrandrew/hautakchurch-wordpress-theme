@@ -19,7 +19,7 @@
     <div class="row my-2">
         <div class="col">
             <h3 style="font-size: 17px;"><a href="<?php the_permalink(); ?>" style="color: #202020"><?php the_title(); ?></a></h3>  
-            <span class="blockquote-footer" style="font-size: 13px"><?php the_date(); ?></span>
+            <span class="blockquote-footer" style="font-size: 13px"><?php echo get_the_date(); ?></span>
             <p style="font-size: 16px"><?php the_excerpt(); ?></p>
         </div>
     </div>
