@@ -157,7 +157,8 @@ function hautakchurch_scripts() {
 	wp_enqueue_script('popperjs', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js");
 	wp_enqueue_script('bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js");
 
-	wp_enqueue_style( 'hautakchurch-style', get_stylesheet_uri(), array(), _S_VERSION );
+	// wp_enqueue_style( 'hautakchurch-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'hautakchurch-style', get_template_directory_uri() . '/css/style.css', array(), _S_VERSION );
 	wp_style_add_data( 'hautakchurch-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'hautakchurch-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
