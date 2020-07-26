@@ -114,10 +114,10 @@ get_header();
 			<p class="text-center d-none d-md-block" style="color:#FFFFFF; font-size:23px">
 				「你們要嘗嘗主恩的滋味，便知道祂是美善；投靠祂的人有福了！」<br> ( 詩 三十四 8 )
 			</p>
-			<p class="text-center d-none d-ss-block d-md-none" style="color:#FFFFFF; font-size:16px">
+			<p class="text-center d-none d-sm-block d-md-none" style="color:#FFFFFF; font-size:16px">
 				「你們要嘗嘗主恩的滋味，<br>便知道祂是美善；投靠祂的人有福了！」 <br> ( 詩 三十四 8 )
 			</p>
-			<p class="text-center d-ss-none" style="color:#FFFFFF; font-size:14px">
+			<p class="text-center d-sm-none" style="color:#FFFFFF; font-size:14px">
 				「你們要嘗嘗主恩的滋味，<br>便知道祂是美善；投靠祂的人有福了！」 <br> ( 詩 三十四 8 )
 			</p>
 		</div>
