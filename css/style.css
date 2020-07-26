@@ -1040,3 +1040,9 @@ body{
   left : 100%;
   margin-left : -200%;
 }
+
+@media screen and (max-width: 1024px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 0;
+	}
+}
