@@ -152,6 +152,11 @@ add_action( 'widgets_init', 'hautakchurch_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hautakchurch_scripts() {
+	wp_enqueue_style( 'bootstrap-css', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+	wp_enqueue_script('jquery', "https://code.jquery.com/jquery-3.3.1.slim.min.js");
+	wp_enqueue_script('popperjs', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js");
+	wp_enqueue_script('bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js");
+
 	wp_enqueue_style( 'hautakchurch-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hautakchurch-style', 'rtl', 'replace' );
 
