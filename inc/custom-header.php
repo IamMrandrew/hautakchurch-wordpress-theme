@@ -70,7 +70,7 @@ if ( ! function_exists( 'hautakchurch_header_style' ) ) :
 			.site-title a,
 			.site-description {
 				color: #<?php echo esc_attr( $header_text_color ); ?>;
-			}
+			/* } */
 		<?php endif; ?>
 		</style>
 		<?php
