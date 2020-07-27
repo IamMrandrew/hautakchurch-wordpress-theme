@@ -25,78 +25,41 @@ get_header();
 
 		<div id="carouselWithControls" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class="carousel-indicators">
-        <li data-target="#carouselWithControls" data-slide-to="0" class="active"></li>
         <?php 
-        $sql = "SELECT * FROM img WHERE type = 'banners' AND file LIKE '%DES%'";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($result))
-        {
-            echo '<li data-target="#carouselWithControls" data-slide-to="1"></li>';
-        }
+        $sliderQuery = new WP_Query(array(
+            'post_type'     => 'slider',
+            'post_status'   => 'publish',
+            'orderby'       => 'DATE',
+            'order'         => 'ASC'
+        ));
+
+        $active = 'class="active"';
+        $count = 0;
+        while ($sliderQuery->have_posts()):
+            $sliderQuery->the_post();
         ?>
+            <li data-target="#carouselWithControls" data-slide-to="<?php echo $count++ ?>" <?php echo $active ?>></li>
+
+        <?php $active = "" ?>
+        <?php endwhile; ?>
     </ol>
 
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<picture class="d-block w-100">   <!-- Desktop is 769px -->
-				<?php 
-				$sql = "SELECT * FROM img WHERE type = 'bannerDesk' ORDER BY date DESC";
-				$result = mysqli_query($conn,$sql);
-				$row = mysqli_fetch_array($result);
-				echo 
-					"<source 
-					media='(min-width: 669px)'
-					srcset=" .$row["file"].">" 
-				?>
 
-				<?php 
-				$sql = "SELECT * FROM img WHERE type = 'bannerMob' ORDER BY date DESC";
-				$result = mysqli_query($conn,$sql);
-				$row = mysqli_fetch_array($result);
-				echo 
-					"<source 
-					media='(min-width: 319px)'
-					srcset=" .$row["file"]. ">" 
-				?>
+        <?php 
+        $active = 'active';
 
-				<img class="d-block w-100" src="img/hautakWeb_Desktop6.png">
-				</picture>
-			</div>
+        while ($sliderQuery->have_posts()):
+            $sliderQuery->the_post();
+        ?>
 
-			<?php 
-			$count = 0;
-			$sql = "SELECT * FROM img WHERE type = 'banners' and file LIKE '%DES%'";
-			$results = mysqli_query($conn, $sql);
+        <div class="carousel-item <?php echo $active; ?>">
+            <img src="<?php echo get_the_post_thumbnail_url() ?>" class="d-block w-100" alt="carousel-img">
+        </div>
 
-			while($rows = mysqli_fetch_array($results)){
-				echo
-					"<div class='carousel-item'>
-					<picture class='d-block w-100'>   <!-- Desktop is 769px -->";
-
-				$sql = "SELECT * FROM img WHERE type = 'banners' and file LIKE '%DES%' LIMIT $count, 18446744073709551615";
-				$result = mysqli_query($conn,$sql);
-				$row = mysqli_fetch_array($result);
-				echo
-					"<source 
-					media='(min-width: 669px)'
-					srcset=" .$row["file"]."> ";
-
-				$sql = "SELECT * FROM img WHERE type = 'banners' and file LIKE '%MOB%' LIMIT $count, 18446744073709551615";
-				$result = mysqli_query($conn,$sql);
-				$roww = mysqli_fetch_array($result);
-				echo
-					"<source 
-					media='(min-width: 319px)'
-					srcset=" .$roww["file"]. ">
-
-					<img class='d-block w-100' src=" .$row["file"]. ">
-					</picture>
-					</div>";
-				$count++;
-			}
-			?>
-     
-			</div>
+        <?php $active = ""; ?>
+        <?php endwhile; ?>
+		</div>
 
 			<a class="carousel-control-prev" href="#carouselWithControls" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>

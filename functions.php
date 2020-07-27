@@ -113,6 +113,28 @@ if ( ! function_exists( 'hautakchurch_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'hautakchurch_setup' );
 
+
+function slider() {
+	$labels = array (
+		'name'				=> '圖片輪播',
+		'singular_name' 	=> '圖片輪播',
+		'menu_name'			=> '圖片輪播',
+		'add_new_item' 		=> '添加圖片至圖片輪播',
+		'add_new' 			=> '添加新圖片至圖片輪播',
+		);
+	$args = array (
+		'label'				=> __('slider'),
+		'labels'			=> $labels,
+		'supports'			=> array('title', 'editor', 'thumbnail'),
+		'public'			=> true,
+		'show_ui'			=> true,
+		'capability_type'	=> 'post',
+		'taxonomies'          => array( 'category' )
+		);
+	register_post_type('slider',$args);
+}
+
+add_action('init', 'slider');
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
