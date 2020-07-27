@@ -29,17 +29,20 @@ get_header();
         $sliderQuery = new WP_Query(array(
             'post_type'     => 'slider',
             'post_status'   => 'publish',
-            'orderby'       => 'DATE',
-            'order'         => 'ASC'
+            'orderby'       => 'title',
+            'order'         => 'ASC',
+            // 'category_name' => '電腦版'
         ));
 
         $active = 'class="active"';
         $count = 0;
         while ($sliderQuery->have_posts()):
             $sliderQuery->the_post();
+            if (in_category('電腦版')):
         ?>
             <li data-target="#carouselWithControls" data-slide-to="<?php echo $count++ ?>" <?php echo $active ?>></li>
-
+            
+        <?php endif ?>
         <?php $active = "" ?>
         <?php endwhile; ?>
     </ol>
@@ -48,16 +51,40 @@ get_header();
 
         <?php 
         $active = 'active';
+        $postThumbnailUrl = array();
+        $postThumbnailUrlM = array();
+        $index = 0;
+        $indexM = 0;
 
         while ($sliderQuery->have_posts()):
             $sliderQuery->the_post();
+
+            if (in_category('電腦版')){
+                $postThumbnailUrl[$index++] = get_the_post_thumbnail_url();
+            }
+            if (in_category('手機版')){
+                $postThumbnailUrlM[$indexM++] = get_the_post_thumbnail_url();
+            }
+
+        endwhile;
+
+        $index = 0;
+        $indexM = 0;
+        while ($sliderQuery->have_posts()):
+            $sliderQuery->the_post();
+            if (in_category('電腦版')):
         ?>
 
-        <div class="carousel-item <?php echo $active; ?>">
-            <img src="<?php echo get_the_post_thumbnail_url() ?>" class="d-block w-100" alt="carousel-img">
-        </div>
+            <div class="carousel-item <?php echo $active; ?>">
 
-        <?php $active = ""; ?>
+            <picture>
+                <source media="(min-width: 669px)" srcset="<?php echo $postThumbnailUrl[$index++] ?>">
+                <source media="(min-width: 319px)" srcset="<?php echo $postThumbnailUrlM[$indexM++] ?>">
+                <img src="<?php echo get_the_post_thumbnail_url() ?>" class="d-block w-100" alt="carousel-img">
+            </picture>
+            </div>
+        <?php endif ?>
+        <?php $active = "" ?>
         <?php endwhile; ?>
 		</div>
 
@@ -115,7 +142,7 @@ get_header();
 
             <div class="row">
             <div class="col">
-                <a href="<?php echo get_category_link( get_cat_ID('最新消息')); ?>" style="color : inherit"><p class="text-left">查看更多</p></a>
+                <a href="<?php echo get_category_link( get_cat_ID('最新消息')); ?>" class="btn btn-dark" style="color: #f5f5f5">閱讀更多最新消息</a>
             </div>
             </div>
         </div>
@@ -146,7 +173,7 @@ get_header();
             ?>
 	        <div class="row">
             <div class="col">
-                <a href="<?php echo get_category_link( get_cat_ID('其他資訊')); ?>" style="color : inherit"><p class="text-left">查看更多</p></a>
+                <a href="<?php echo get_category_link( get_cat_ID('其他資訊')); ?>" class="btn btn-dark" style="color: #f5f5f5">閱讀更多其他資訊</a>
             </div>
             </div>
             </div>

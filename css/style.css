@@ -1046,3 +1046,13 @@ body{
 		padding-right: 0 !important;
 	}
 }
+
+.news-item-link {
+	text-decoration: none;
+	color: #202020;
+}
+
+.news-item-link:hover{
+	text-decoration: none;
+	color: #202020;
+}
