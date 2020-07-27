@@ -21,8 +21,10 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
+				<span class="entry-meta-date"><?php echo get_the_date('M d, Y'); ?></span>
+
 				<?php
-				hautakchurch_posted_on();
+				// hautakchurch_posted_on();
 				// hautakchurch_posted_by();
 				?>
 			</div><!-- .entry-meta -->
@@ -56,8 +58,12 @@
 		);
 		?>
 	</div><!-- .entry-content -->
+	
+	<?php edit_post_link( __( '編輯帖子', 'hautakchurch' ), '<p>', '</p>', null, 'btn btn-dark btn-edit-post-link' ); ?>
 
 	<footer class="entry-footer">
-		<?php hautakchurch_entry_footer(); ?>
+		<?php 
+		// hautakchurch_entry_footer(); 
+		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

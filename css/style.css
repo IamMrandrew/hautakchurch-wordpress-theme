@@ -1056,3 +1056,19 @@ body{
 	text-decoration: none;
 	color: #202020;
 }
+
+/* content.php */
+
+.entry-meta-date {
+	color: #6D6D6D;
+	font-size: 14px !important;
+}
+
+.btn-edit-post-link {
+	
+}
+
+.pre_post_link a, .next_post_link a{
+	/* text-decoration: none; */
+	color: #202020;
+}
