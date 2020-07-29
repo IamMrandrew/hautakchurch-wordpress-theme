@@ -167,7 +167,7 @@ function recording_add_meta_box() {
 	add_meta_box( 'recording_meta', '資料', 'recording_meta_callback', 'recording','side');
 }
 
-function preacher_name_callback($post) {
+function recording_meta_callback($post) {
 	wp_nonce_field('save_recording_meta_data', 'recording_meta_metabox_nounce');
 
 	$value = get_post_meta($post->ID, '_preacher_name_value_key', true);
@@ -182,7 +182,7 @@ function preacher_name_callback($post) {
 
 add_action('add_meta_boxes', 'recording_add_meta_box');
 
-function save_preacher_name_data($post_id) {
+function save_recording_meta_data($post_id) {
 	if( !isset($_POST['recording_meta_metabox_nounce']) ){
 		return;
 	}
