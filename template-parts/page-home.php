@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home2
+ * Template Nameeee: Home2
  * 
  * The template for displaying all pages
  *

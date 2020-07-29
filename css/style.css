@@ -520,10 +520,10 @@ img {
 	height: auto;
 	max-width: 100%;
 }
-
+/* 
 figure {
 	margin: 1em 0;
-}
+} */
 
 table {
 	margin: 0 0 1.5em;
@@ -1027,6 +1027,9 @@ body{
   min-height: calc(100vh - 49px - 100px);
 }
 
+.content-wrapper {
+	min-height: calc(100vh - 49px - 100px);
+}
 
 .crop{
   width : 100%;
@@ -1064,9 +1067,9 @@ body{
 	font-size: 14px !important;
 }
 
-.btn-edit-post-link {
+/* .btn-edit-post-link {
 	
-}
+} */
 
 .pre_post_link a, .next_post_link a{
 	/* text-decoration: none; */

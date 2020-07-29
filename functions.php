@@ -113,7 +113,7 @@ if ( ! function_exists( 'hautakchurch_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'hautakchurch_setup' );
 
-
+// Custom Post Type Slider Image
 function slider() {
 	$labels = array (
 		'name'				=> '圖片輪播',
@@ -129,12 +129,93 @@ function slider() {
 		'public'			=> true,
 		'show_ui'			=> true,
 		'capability_type'	=> 'post',
+		'menu_icon'			=> 'dashicons-format-gallery',
 		'taxonomies'          => array( 'category' )
 		);
 	register_post_type('slider',$args);
 }
 
 add_action('init', 'slider');
+
+// Custom Post Type Recording
+function recording() {
+	$labels = array (
+		'name'				=> '講道錄音',
+		'singular_name' 	=> '講道錄音',
+		'menu_name'			=> '講道錄音',
+		'add_new_item' 		=> '添加講道錄音',
+		'add_new' 			=> '添加新的講道錄音',
+		);
+	$args = array (
+		'label'				=> __('recording'),
+		'labels'			=> $labels,
+		'supports'			=> array('title', 'editor', 'thumbnail'),
+		'show_in_rest' 		=> true,
+		'public'			=> true,
+		'show_ui'			=> true,
+		'capability_type'	=> 'post',
+		'menu_icon'			=> 'dashicons-format-audio',
+		'taxonomies'          => array( 'category' )
+		);
+	register_post_type('recording',$args);
+	
+}
+
+add_action('init', 'recording');
+
+function recording_add_meta_box() {
+	add_meta_box( 'preacher_name', '資料', 'preacher_name_callback', 'recording','side');
+}
+
+function preacher_name_callback($post) {
+	wp_nonce_field('save_preacher_name_data', 'preacher_name_metabox_nounce');
+
+	$value = get_post_meta($post->ID, '_preacher_name_value_key', true);
+	echo '<label for="preacher_name_field" style="padding: 5px 3px; display: block">講員</label>';
+	echo '<input type="email" id="preacher_name_field" name="preacher_name_field" style="margin-bottom: 10px" value="' .esc_attr($value).'" />';
+
+	$value2 = get_post_meta($post->ID, '_bible_verse_value_key', true);
+	echo '<label for="bible_verse_field" style="padding: 5px 3px; display: block">經文</label>';
+	echo '<input type="email" id="bible_verse_field" name="bible_verse_field" value="' .esc_attr($value2).'" />';
+
+}
+
+add_action('add_meta_boxes', 'recording_add_meta_box');
+
+function save_preacher_name_data($post_id) {
+	if( !isset($_POST['preacher_name_metabox_nounce']) ){
+		return;
+	}
+
+	if( !wp_verify_nonce( $_POST['preacher_name_metabox_nounce'], 'save_preacher_name_data')) {
+		return;
+	}
+
+	if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if( !current_user_can( 'edit_post', $post_id) ) {
+		return;
+	}
+
+	if( !isset( $_POST['preacher_name_field']) ) {
+		return;
+	} 
+
+	if( !isset( $_POST['bible_verse_field']) ) {
+		return;
+	} 
+
+	$data = sanitize_text_field( $_POST['preacher_name_field'] );
+	$data2 = sanitize_text_field( $_POST['bible_verse_field'] );
+
+	update_post_meta( $post_id, '_preacher_name_value_key', $data);
+	update_post_meta( $post_id, '_bible_verse_value_key', $data2);
+}
+
+add_action('save_post', 'save_preacher_name_data');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

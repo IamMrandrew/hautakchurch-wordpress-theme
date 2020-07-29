@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Article
+ * Template Nameeeeee: Article
  * 
  * The template for displaying all pages
  *

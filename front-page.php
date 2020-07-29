@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Front Page
+ * Template Nameee: Front Page
  * 
  * The template for displaying front page
  *
@@ -26,6 +26,7 @@ get_header();
 		<div id="carouselWithControls" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class="carousel-indicators">
         <?php 
+        // custom loop
         $sliderQuery = new WP_Query(array(
             'post_type'     => 'slider',
             'post_status'   => 'publish',
@@ -127,7 +128,7 @@ get_header();
             </div>
             
             <?php
-                    // global $query_string;
+                    // main loop
                     query_posts( array(
                         'category_name'  => '最新消息',
                         'posts_per_page' => 3
