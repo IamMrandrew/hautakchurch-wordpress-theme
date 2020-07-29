@@ -24,11 +24,11 @@ get_header();
     <img class="my-2" src="img/cover1.jpg" width="100%"> -->
 <div class="container content-wrapper">
     <h1 style="padding: 15px"><?php the_title() ?></h1>
-    <form action="">
+    <!-- <form action="">
         <select name="orderby" id="orderby">
             <option value="date">new to old</option>
         </select>
-    </form>
+    </form> -->
 
     <div class="row">
     <?php
