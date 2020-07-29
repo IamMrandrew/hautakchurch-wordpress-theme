@@ -24,16 +24,22 @@ get_header();
     <img class="my-2" src="img/cover1.jpg" width="100%"> -->
 <div class="container content-wrapper">
     <h1 style="padding: 15px"><?php the_title() ?></h1>
+    <form action="">
+        <select name="orderby" id="orderby">
+            <option value="date">new to old</option>
+        </select>
+    </form>
+
     <div class="row">
     <?php
     $recordingQuery = new WP_Query(array(
         'post_type'     => 'recording',
         'post_status'   => 'publish',
         'orderby'       => 'date',
-        'order'         => 'ASC',
+        'order'         => 'DESC',
         'posts_per_page' => 10,
         'paged'         => get_query_var('paged')
-        // 'category_name' => '講道錄音'
+        // 'category_name' => '講道錄音'`
     ));
 
     while ( $recordingQuery->have_posts() ) :

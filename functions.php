@@ -164,11 +164,11 @@ function recording() {
 add_action('init', 'recording');
 
 function recording_add_meta_box() {
-	add_meta_box( 'preacher_name', '資料', 'preacher_name_callback', 'recording','side');
+	add_meta_box( 'recording_meta', '資料', 'recording_meta_callback', 'recording','side');
 }
 
 function preacher_name_callback($post) {
-	wp_nonce_field('save_preacher_name_data', 'preacher_name_metabox_nounce');
+	wp_nonce_field('save_recording_meta_data', 'recording_meta_metabox_nounce');
 
 	$value = get_post_meta($post->ID, '_preacher_name_value_key', true);
 	echo '<label for="preacher_name_field" style="padding: 5px 3px; display: block">講員</label>';
@@ -183,11 +183,11 @@ function preacher_name_callback($post) {
 add_action('add_meta_boxes', 'recording_add_meta_box');
 
 function save_preacher_name_data($post_id) {
-	if( !isset($_POST['preacher_name_metabox_nounce']) ){
+	if( !isset($_POST['recording_meta_metabox_nounce']) ){
 		return;
 	}
 
-	if( !wp_verify_nonce( $_POST['preacher_name_metabox_nounce'], 'save_preacher_name_data')) {
+	if( !wp_verify_nonce( $_POST['recording_meta_metabox_nounce'], 'save_recording_meta_data')) {
 		return;
 	}
 
@@ -214,7 +214,33 @@ function save_preacher_name_data($post_id) {
 	update_post_meta( $post_id, '_bible_verse_value_key', $data2);
 }
 
-add_action('save_post', 'save_preacher_name_data');
+add_action('save_post', 'save_recording_meta_data');
+
+// Add the custom columns to the recording post type:
+add_filter( 'manage_recording_posts_columns', 'set_custom_edit_recording_columns' );
+function set_custom_edit_recording_columns($columns) {
+    unset( $columns['author'] );
+    $columns['preacher'] = __( '講員', 'hautakchurch');
+    $columns['verse'] = __( '經文', 'hautakchurch' );
+
+    return $columns;
+}
+
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_recording_posts_custom_column' , 'custom_recording_column', 10, 2 );
+function custom_recording_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'preacher' :
+			echo get_post_meta( $post_id , '_preacher_name_value_key' , true ); 
+			break;
+
+        case 'verse' :
+            echo get_post_meta( $post_id , '_bible_verse_value_key' , true ); 
+            break;
+
+    }
+}
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
