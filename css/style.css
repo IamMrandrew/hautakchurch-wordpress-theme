@@ -1075,3 +1075,7 @@ body{
 	/* text-decoration: none; */
 	color: #202020;
 }
+
+.dropdown:hover>.dropdown-menu{
+	display: block;
+}
